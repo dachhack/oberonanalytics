@@ -26,3 +26,13 @@ Squarespace DNS can hold MX records for Google Workspace, or move DNS to Cloudfl
 - `assets/`: images.
 - `CNAME`, `.nojekyll`: GitHub Pages configuration.
 The parody page is intentionally not in this repo; it lives in the private job-search repo.
+
+## Email status (checked 2026-09-12)
+The domain has no MX records and SPF is `v=spf1 -all`, so `matt@oberonanalytics.ai` does not exist and
+mail to it bounces. The site links to mlporritt@gmail.com until one of these is done:
+1. **Google Workspace via Squarespace** (paid, ~$7/user/month): Squarespace adds the MX/SPF/DKIM records
+   itself. Simplest.
+2. **Cloudflare Email Routing** (free): move nameservers to Cloudflare, add the routing rule
+   `matt@oberonanalytics.ai -> mlporritt@gmail.com`, and set Gmail "Send mail as" to reply from the
+   domain. The A/CNAME records above move to Cloudflare unchanged.
+Whichever is chosen, replace `v=spf1 -all` with the provider's SPF record or outbound mail will be rejected.
