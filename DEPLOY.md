@@ -37,8 +37,12 @@ mail to it bounces. The site links to mlporritt@gmail.com until one of these is 
    domain. The A/CNAME records above move to Cloudflare unchanged.
 Whichever is chosen, replace `v=spf1 -all` with the provider's SPF record or outbound mail will be rejected.
 
-## Parody page
+## Which page is at the root
 
-`parody/index.html` is served at https://oberonanalytics.ai/parody/. It carries a
-`noindex, nofollow` meta tag so search results for "Oberon Analytics" land on the real
-page, and a banner that links back to `/`. Hero image: `assets/founder-quantum-data-hub.jpg`.
+As of 2026-09-12 the **parody** is served at the root (`index.html`) and the real site lives at
+`real/index.html` (https://oberonanalytics.ai/real/). `parody/` redirects to `/`. The parody keeps its
+`noindex, nofollow` tag, so while it is at the root the home page is not indexed by search engines;
+`/real/` is indexable.
+
+To swap back: move `real/index.html` to `index.html` (asset path `assets/`), move the parody to
+`parody/index.html` (asset path `../assets/`, banner link `/`), and delete the redirect.
