@@ -36,3 +36,9 @@ mail to it bounces. The site links to mlporritt@gmail.com until one of these is 
    `matt@oberonanalytics.ai -> mlporritt@gmail.com`, and set Gmail "Send mail as" to reply from the
    domain. The A/CNAME records above move to Cloudflare unchanged.
 Whichever is chosen, replace `v=spf1 -all` with the provider's SPF record or outbound mail will be rejected.
+
+## Parody page
+
+`parody/index.html` is served at https://oberonanalytics.ai/parody/. It carries a
+`noindex, nofollow` meta tag so search results for "Oberon Analytics" land on the real
+page, and a banner that links back to `/`. Hero image: `assets/founder-quantum-data-hub.jpg`.
